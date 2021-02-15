@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron bg-secondary mb-0">
+				<h1 class="display-4">MEUS PEDIDOS</h1>
+			</div>
+			<nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-between mb-3 mt-0">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="">Todos</a>
+					<a class="nav-item nav-link" href="">Aguardando</a>
+					<a class="nav-item nav-link" href="">Aprovado</a>
+					<a class="nav-item nav-link" href="">Entregue</a>
+				</div>
+				<a href="/pedido/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0 mr-5">Novo</button></a>
+			</nav>
+			<div class="card mt-4" th:each="pedido : ${pedidos}">
+				<div class="card-header" th:text="${pedido.nomeProduto}"></div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 mb-3 col-sm-8">
+								<div class="row mb-3">
+									<div class="col-md-4 mb-2">Valor: <span th:text="${pedido.valorNegociado}"></span></div>
+									<div class="col-md-8 mb-2">Data da entrega: <span th:text="${pedido.dataEntrega}"></span></div>
+								</div>
+								<div class="row mb-3">
+									<div class="col-md-3">URL do produto</div>
+									<div class="col-md-9"><input class="form-control" th:value="${pedido.urlProduto}"> </div>
+								</div>
+								<div class="row mb-3">
+									<div class="col-md-3">Descrição</div>
+									<div class="col-md-9">
+										<textarea class="form-control" th:text="${pedido.descricao}">descrição do pedido</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-sm-4">
+								<div>
+									<img class="img-thumbnail" th:src="${pedido.urlImagem}">
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
