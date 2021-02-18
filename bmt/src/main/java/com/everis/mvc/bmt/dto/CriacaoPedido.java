@@ -3,6 +3,8 @@ package com.everis.mvc.bmt.dto;
 
 import javax.validation.constraints.NotBlank;
 import com.everis.mvc.bmt.model.Pedido;
+import com.everis.mvc.bmt.model.StatusPedido;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,7 @@ public class CriacaoPedido {
 		pedido.setUrlProduto(urlProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setDescricao(descricao);
+		pedido.setStatusPedido(StatusPedido.AGUARDANDO);
 		return pedido;
 	}
 
